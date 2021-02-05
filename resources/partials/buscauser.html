@@ -1,0 +1,41 @@
+<form id="form_38896" class="appnitro" method="" action="">
+  <div class="form_description">
+    <h2>Buscar Usuários</h2>
+    <br>
+    <p>Informe um nome para a busca ou selecione o campo "TODOS" para ver todos os usuários.</p>
+  </div>
+  <ul>
+    <li id="li_1">
+      <label class="description" for="element_1">Nome para busca</label>
+      <div>
+        <input id="element_1" name="element_1" class="element text medium" type="text" maxlength="255" value="">
+      </div>
+    </li>
+    <li id="li_2">
+      <span>
+        <input id="element_2_1" name="element_2" checked class="element radio" type="radio" value="1">
+        <label class="choice" for="element_2_1">Buscar por nome</label>
+        <input id="element_2_2" name="element_2" class="element radio" type="radio" value="2">
+        <label class="choice" for="element_2_2">Buscar "TODOS"</label>
+      </span>
+    </li>
+    <li class="buttons">
+      <input type="hidden" name="form_id" value="38896">
+      <input id="send" class="button_text" type="submit" name="submit" value="Submit">
+    </li>
+  </ul>
+</form>
+
+<script>
+  $(function(){
+    $('#send').on('click', function () {
+        var url = $('#element_1').val();
+        if ($('#element_2_2').is(':checked'))
+          url = 'TODOS';
+        if (url) {
+            window.location.href = '/buscausuarios/'+url;
+        }
+        return false;
+    });
+  });
+</script>

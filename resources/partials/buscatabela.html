@@ -1,0 +1,43 @@
+<form id="form_9893029" class="appnitro" method="" action="">
+  <div class="form_description">
+    <h2>Mostrar uma tabela do BD</h2>
+    <br>
+    <p>Escolha uma tabela do banco de dados para ser exibida.</p>
+  </div>
+  <ul>
+    <li id="li_1">
+      <label class="description" for="element_1">Tabelas:</label>
+      <div>
+        <select class="element select medium" id="element_1" name="element_1">
+          <option value="" selected="selected"></option>
+          <option value="1">ESTADIAS</option>
+          <option value="2">VAGAS</option>
+          <option value="3">TELEFONES_ESTADIA</option>
+          <option value="4">USUARIOS</option>
+          <option value="5">TELEFONES_USUARIO</option>
+          <option value="6">UNIVERSIDADES</option>
+          <option value="7">EVENTOS</option>
+          <option value="8">DISTANCIAS_UES</option>
+          <option value="9">DISTANCIAS_UEV</option>
+          <option value="10">DISTANCIAS_EE</option>
+        </select>
+      </div>
+    </li>
+    <li class="buttons">
+      <input type="hidden" name="form_id" value="38896">
+      <input id="send" class="button_text" type="submit" name="submit" value="Submit">
+    </li>
+  </ul>
+</form>
+
+<script>
+  $(function(){
+    $('#send').on('click', function () {
+      var tbl = $('#element_1 :selected').text();
+      if (tbl != ""){
+        window.location.href = '/mostrartabela/' + tbl;
+      }
+      return false;
+    });
+  });
+</script>

@@ -1,0 +1,56 @@
+<form id="form_98879" class="appnitro" method="" action="">
+  <div class="form_description">
+    <h2>Buscar Evento por Data</h2>
+    <br>
+    <p>Informe duas datas para a busca ou selecione o campo "TODOS" para ver todos os eventos.</p>
+  </div>
+  <ul>
+    <li id="li_1">
+      <label class="description" for="element_1">Data Inicial:</label>
+      <div>
+        <input id="element_1" name="element_1" class="element text medium" type="text" maxlength="255" value="">
+      </div>
+    </li>
+    <li id="li_2">
+      <label class="description" for="element_2">Data Final:</label>
+      <div>
+        <input id="element_2" name="element_2" class="element text medium" type="text" maxlength="255" value="">
+      </div>
+    </li>
+    <li id="li_3">
+      <span>
+        <input id="element_3_1" name="element_3" checked class="element radio" type="radio" value="1">
+        <label class="choice" for="element_3_1">Buscar por datas</label>
+        <input id="element_3_2" name="element_3" class="element radio" type="radio" value="2">
+        <label class="choice" for="element_3_2">Buscar "TODAS" as datas</label>
+      </span>
+    </li>
+    <li class="buttons">
+      <input type="hidden" name="form_id" value="38896">
+      <input id="send" class="button_text" type="submit" name="submit" value="Submit">
+    </li>
+    <li id="li_4">
+      <input id="element_4_1" name="element_4_1" class="element checkbox" type="checkbox" value="1">
+      <label class="choice" for="element_4_1">Incluir eventos terminados.</label>
+    </li>
+  </ul>
+</form>
+
+<script>
+  $(function(){
+    $('#send').on('click', function () {
+        var d1 = $('#element_1').val();
+        var d2 = $('#element_2').val();
+        var d3 = 'true';
+        if ($('#element_4_1').is(':checked')){
+          d3 = 'false';
+        }
+        if ($('#element_3_2').is(':checked')){
+          window.location.href = '/buscaevento/data/TODOS/' + d3;
+        }else if (d1 && d2) {
+          window.location.href = '/buscaevento/data/' + d1 + '/' + d2 + '/' + d3;
+        }
+        return false;
+    });
+  });
+</script>

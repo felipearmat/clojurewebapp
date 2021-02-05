@@ -1,0 +1,58 @@
+<form id="form_54636" class="appnitro" method="" action="">
+  <div class="form_description">
+    <h2>Cadastrar Usuário</h2>
+    <br>
+    <p>Informe os dados do usuário para cadastro.</p>
+  </div>
+  <ul>
+    <li id="li_1">
+      <label class="description" for="element_1">Nome:</label>
+      <div>
+        <input id="element_1" name="element_1" class="element text medium" type="text" maxlength="255" value="">
+      </div>
+    </li>
+    <li id="li_2">
+      <label class="description" for="element_2">Email:</label>
+      <div>
+        <input id="element_2" name="element_2" class="element text medium" type="text" maxlength="255" value="">
+      </div>
+    </li>
+    <li id="li_3">
+      <label class="description" for="element_3">CPF:</label>
+      <div>
+        <input id="element_3" name="element_3" class="element text medium" type="text" maxlength="255" value="">
+      </div>
+    </li>
+    <li id="li_4">
+      <label class="description" for="element_4">Tipo:</label>
+      <div>
+        <input id="element_4" name="element_4" class="element text medium" type="text" maxlength="255" value="">
+      </div>
+    </li>
+    <li class="buttons">
+      <input type="hidden" name="form_id" value="38896">
+      <input id="send" class="button_text" type="submit" name="submit" value="Submit">
+    </li>
+  </ul>
+</form>
+
+<script>
+  $( document ).ajaxSuccess(function( event, xhr, settings ) {
+    alert("Usuário cadastrado com sucesso!");
+    window.location.href = '/cadastrausuario';
+  });
+  $(function(){
+    $('#send').on('click', function () {
+        var result = jQuery.ajax({
+          type: "POST",
+          url: "/cadastrausuario",
+          data: {
+            nome: $('#element_1').val(),
+            email: $('#element_2').val(),
+            cpf: $('#element_3').val(),
+            tipo: $('#element_4').val()}
+        });
+        return false;
+    });
+  });
+</script>
